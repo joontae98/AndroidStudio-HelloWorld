@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello World!"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_gravity="left|bottom"
-        android:gravity="center"
-        android:textSize="15sp"
-        android:textColor="@android:color/holo_red_light"
-        />
-</LinearLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="right "
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/TextView_center"
+        android:layout_centerVertical="true"
+        >
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="left "
+        android:textSize="20sp"
+        android:layout_toLeftOf="@+id/TextView_center"
+        android:layout_centerVertical="true"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/TextView_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:text="center "
+        android:textSize="20sp"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="top "
+        android:textSize="20sp"
+        android:layout_above="@+id/TextView_center"
+        android:layout_centerHorizontal="true"
+        >
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bottom "
+        android:textSize="20sp"
+        android:layout_below="@+id/TextView_center"
+        android:layout_centerHorizontal="true"
+        >
+    </TextView>
+</RelativeLayout>
