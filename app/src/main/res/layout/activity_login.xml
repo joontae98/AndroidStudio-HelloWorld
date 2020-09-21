@@ -35,6 +35,7 @@
             android:layout_height="50dp"
             android:hint="Email"
             android:layout_marginBottom="16dp"
+            android:id="@+id/TextInputEditText_email"
             >
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -48,12 +49,14 @@
             android:layout_height="50dp"
             android:hint="Password"
             android:layout_marginBottom="16dp"
+            android:id="@+id/TextInputEditText_password"
             >
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
+        android:id="@+id/RelativeLayout_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
@@ -63,6 +66,7 @@
         android:paddingRight="12dp"
         android:clickable="true"
         android:weightSum="1"
+        android:layout_marginBottom="16dp"
         >
 
         <TextView
@@ -95,12 +99,14 @@
         android:text="Or" />
 
     <RelativeLayout
+        android:id="@+id/RelativeLayout_youtube"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/btn_blue"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:clickable="true"
+        android:layout_marginBottom="16dp"
 
         >
         <TextView
