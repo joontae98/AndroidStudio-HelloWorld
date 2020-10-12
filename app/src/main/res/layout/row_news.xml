@@ -22,12 +22,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="@null"
+                <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/ImageView_title"
-                    android:src="@drawable/icon_present"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="30dp"

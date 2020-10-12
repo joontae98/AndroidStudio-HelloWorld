@@ -2,6 +2,7 @@ package com.helloworld;
 
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -73,15 +74,17 @@ public class NewsActivity extends AppCompatActivity {
                             for(int i = 0, j = arrayArticles.length(); i < j; i++){
                                 JSONObject obj = arrayArticles.getJSONObject(i);
 
+                                Log.d("NEWS",obj.toString());
+
                                 NewsData newsData = new NewsData();
                                 newsData.setTitle(obj.getString("title"));
                                 newsData.setUrlToImage(obj.getString("urlToImage"));
-                                newsData.setContent(obj.getString("content"));
+                                newsData.setContent(obj.getString("description"));
                                 news.add(newsData);
                             }
 
                             // specify an adapter (see also next example)
-                            mAdapter = new MyAdapter(news);
+                            mAdapter = new MyAdapter(news, NewsActivity.this);
                             recyclerView.setAdapter(mAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
