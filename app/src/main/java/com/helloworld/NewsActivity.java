@@ -1,8 +1,10 @@
 package com.helloworld;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -84,7 +86,18 @@ public class NewsActivity extends AppCompatActivity {
                             }
 
                             // specify an adapter (see also next example)
-                            mAdapter = new MyAdapter(news, NewsActivity.this);
+                            mAdapter = new MyAdapter(news, NewsActivity.this, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Object obj = v.getTag();
+                                    if(obj != null) {
+                                        int position = (int)obj;
+                                        ((MyAdapter)mAdapter).getNews(position);
+                                        Intent intent = new Intent(,);
+                                        startActivity(intent);
+                                    }
+                                }
+                            });
                             recyclerView.setAdapter(mAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -20,6 +20,7 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<NewsData> mDataset;
+    private static View.OnClickListener onClickListener;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -29,18 +30,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public TextView TextView_title;
         public TextView TextView_description;
         public ImageView ImageView_title;
+        public View rootView;
 
         public MyViewHolder(View v) {
             super(v);
             TextView_title = v.findViewById(R.id.TextView_title);
             TextView_description = v.findViewById(R.id.TextView_description);
             ImageView_title = (SimpleDraweeView) v.findViewById(R.id.ImageView_title);
+            rootView = v;
+            v.setClickable(true);
+            v.setEnabled(true);
+            v.setOnClickListener(onClickListener);
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<NewsData> myDataset, Context context) {
+    public MyAdapter(List<NewsData> myDataset, Context context, View.OnClickListener onClick) {
         mDataset = myDataset;
+        onClickListener = onClick;
         Fresco.initialize(context);
     }
 
@@ -69,15 +76,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         } else {
             Uri uri = Uri.parse("https://miryangcci.korcham.net/images/no-image01.gif");
             holder.ImageView_title.setImageURI(uri);
-
         }
-
+        holder.rootView.setTag(position);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return mDataset == null ? 0 : mDataset.size();
+    }
+
+    public NewsData getNews(int position) {
+        return  mDataset != null ? mDataset.get(position) : null;
     }
 }
 
