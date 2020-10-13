@@ -27,13 +27,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView TextView_title;
-        public TextView TextView_content;
+        public TextView TextView_description;
         public ImageView ImageView_title;
 
         public MyViewHolder(View v) {
             super(v);
             TextView_title = v.findViewById(R.id.TextView_title);
-            TextView_content = v.findViewById(R.id.TextView_content);
+            TextView_description = v.findViewById(R.id.TextView_description);
             ImageView_title = (SimpleDraweeView) v.findViewById(R.id.ImageView_title);
         }
     }
@@ -62,7 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // - replace the contents of the view with that element
         NewsData news = mDataset.get(position);
         holder.TextView_title.setText(news.getTitle());
-        holder.TextView_content.setText(news.getContent());
+        holder.TextView_description.setText(news.getDescription());
         if(news.getUrlToImage() != null) {
             Uri uri = Uri.parse(news.getUrlToImage());
             holder.ImageView_title.setImageURI(uri);

@@ -53,7 +53,7 @@
                 android:paddingRight="6dp"
                 android:textSize="10sp"
                 android:maxLines="2"
-                android:id="@+id/TextView_content"
+                android:id="@+id/TextView_description"
                 />
 
         </LinearLayout>
