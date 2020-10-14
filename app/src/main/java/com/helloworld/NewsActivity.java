@@ -92,8 +92,15 @@ public class NewsActivity extends AppCompatActivity {
                                     Object obj = v.getTag();
                                     if(obj != null) {
                                         int position = (int)obj;
-                                        ((MyAdapter)mAdapter).getNews(position);
-                                        Intent intent = new Intent(,);
+                                        String title        = ((MyAdapter)mAdapter).getNews(position).getTitle();
+                                        String image        = ((MyAdapter)mAdapter).getNews(position).getUrlToImage();
+                                        String description  = ((MyAdapter)mAdapter).getNews(position).getDescription();
+                                        Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
+                                        //하나씩
+                                        intent.putExtra("title",title);
+                                        intent.putExtra("image",image);
+                                        intent.putExtra("description",description);
+                                        //한번에
                                         startActivity(intent);
                                     }
                                 }
