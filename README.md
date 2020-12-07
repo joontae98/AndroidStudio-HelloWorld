@@ -1,2 +1,2 @@
-# AndroidStudio-HelloWorld
-**AndroidStudio** practice
+# NewsApp
+
